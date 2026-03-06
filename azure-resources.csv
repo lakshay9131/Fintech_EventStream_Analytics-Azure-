@@ -1,0 +1,8 @@
+﻿NAME,TYPE,LOCATION,RESOURCE LINK
+"test-project-1-kv","Key vault","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.KeyVault/vaults/test-project-1-kv"
+"testproject1adls","Storage account","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.Storage/storageAccounts/testproject1adls"
+"tp1-app-identity","Managed Identity","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/tp1-app-identity"
+"tp1-eventhub","Event Hubs Namespace","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.EventHub/namespaces/tp1-eventhub"
+"tp1-logs-workspace","Log Analytics workspace","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.OperationalInsights/workspaces/tp1-logs-workspace"
+"tp1-stream-analytics","Stream Analytics job","South India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.StreamAnalytics/streamingjobs/tp1-stream-analytics"
+"tp1cosmosdb","Azure Cosmos DB account","Central India","https://portal.azure.com#resource/subscriptions/SUBSCRIPTION_ID_REDACTED/resourceGroups/test_project_1_resource_group/providers/Microsoft.DocumentDB/databaseAccounts/tp1cosmosdb"

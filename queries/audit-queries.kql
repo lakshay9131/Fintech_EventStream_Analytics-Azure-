@@ -1,0 +1,83 @@
+// ============================================================
+// test_project_1 — Log Analytics KQL Queries
+// AZ-305 Study Project | Akshay Moryani | March 2026
+// Run these in: tp1-logs-workspace → Logs
+// ============================================================
+
+
+// ------------------------------------------------------------
+// Query 1 — All storage writes in last 24 hours
+// Use case: Compliance officer audit trail
+// ------------------------------------------------------------
+StorageBlobLogs
+| where TimeGenerated > ago(24h)
+| where OperationName == "PutBlob"
+| project TimeGenerated, CallerIpAddress, Uri, StatusCode, AuthenticationType
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 2 — All storage reads (who accessed what data)
+// Use case: Data access audit
+// ------------------------------------------------------------
+StorageBlobLogs
+| where TimeGenerated > ago(24h)
+| where OperationName == "GetBlob"
+| project TimeGenerated, CallerIpAddress, Uri, StatusCode
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 3 — Failed access attempts (security monitoring)
+// Use case: Detect unauthorised access
+// ------------------------------------------------------------
+StorageBlobLogs
+| where TimeGenerated > ago(24h)
+| where StatusCode >= 400
+| project TimeGenerated, CallerIpAddress, OperationName, 
+          StatusCode, Uri
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 4 — All Azure Activity on resource group
+// Use case: Full governance audit
+// ------------------------------------------------------------
+AzureActivity
+| where ResourceGroup == "test_project_1_resource_group"
+| project TimeGenerated, OperationName, Caller, 
+          ActivityStatus, ResourceId
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 5 — Role assignment changes (identity governance)
+// Use case: Track who changed permissions
+// ------------------------------------------------------------
+AzureActivity
+| where ResourceGroup == "test_project_1_resource_group"
+| where OperationName contains "roleAssignment"
+| project TimeGenerated, Caller, OperationName, 
+          ActivityStatus, Properties
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 6 — Cosmos DB request volume
+// Use case: Hot path usage monitoring
+// ------------------------------------------------------------
+AzureDiagnostics
+| where ResourceType == "DATABASEACCOUNTS"
+| where TimeGenerated > ago(1h)
+| summarize RequestCount=count() by bin(TimeGenerated, 5m), 
+            OperationName
+| order by TimeGenerated desc
+
+
+// ------------------------------------------------------------
+// Query 7 — Workspace usage summary
+// Use case: Confirm Log Analytics is receiving data
+// ------------------------------------------------------------
+Usage
+| summarize TotalGB=sum(Quantity)/1024 by DataType
+| order by TotalGB desc

@@ -16,6 +16,12 @@ A FinTech food delivery platform needs a secure, scalable analytics system that:
 
 ---
 
+## check scrrenshot folders 
+<img width="1920" height="1080" alt="Screenshot from 2026-03-07 01-47-45" src="https://github.com/user-attachments/assets/a50f7cdd-77c2-4162-bcc2-98d1ec7045fb" />
+
+<img width="1920" height="1080" alt="Screenshot from 2026-03-07 01-46-31" src="https://github.com/user-attachments/assets/1cb1abca-459b-479d-8003-8467df008c40" />
+
+
 ## 🏗️ Architecture
 
 ```

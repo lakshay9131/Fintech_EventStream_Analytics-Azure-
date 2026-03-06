@@ -12,7 +12,7 @@ A FinTech food delivery platform needs a secure, scalable analytics system that:
 - Routes data to fast operational storage AND deep analytics storage simultaneously  
 - Enforces strict identity governance across four distinct roles with least privilege
 - Maintains full audit trails for compliance
-- Operates at near-zero cost during development (~₹2-3/month)
+- Operates at near-zero cost during development (~₹2-3/month) for testing time only not reguraly 
 
 ---
 
